@@ -1,5 +1,5 @@
 const Verfication = require("../models/Verification");
-const User = require("../models/user");
+const User = require("../models/User");
 const sendEmail = require("./email");
 const jsonwebtoken = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET;
