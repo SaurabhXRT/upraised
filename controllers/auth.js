@@ -7,6 +7,7 @@ const secret = process.env.JWT_SECRET;
 //using email based otp verification we verify the user to provide token to secure api
 class AuthController {
     async requestOtp(req, res) {
+        // #swagger.description = 'use email and name to regsiter a token will be given and otp will be sent to email using token and otp verify the otp to get the logged in token to use for gadgets api'
         try {
             const { email, name } = req.body;
             const user = await User.findOne({

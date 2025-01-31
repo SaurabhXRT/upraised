@@ -22,7 +22,7 @@
     },
     "/register": {
       "post": {
-        "description": "",
+        "description": "use email and name to regsiter a token will be given and otp will be sent to email using token and otp verify the otp to get the logged in token to use for gadgets api",
         "parameters": [
           {
             "name": "body",
