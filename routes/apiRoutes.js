@@ -9,6 +9,7 @@ router.post("/verify-email-otp", AuthController.verifyOtp);
 
 //gadget routes
 router.get('/gadgets', authmiddleware, GadgetController.getAllGadgets);
+router.get('/gadgetsbystatus', authmiddleware, GadgetController.getGadgetsByStatus);
 router.post('/gadgets', authmiddleware, GadgetController.addGadget);
 router.patch('/gadgets/:id', authmiddleware, GadgetController.updateGadget);
 router.delete('/gadgets/:id', authmiddleware, GadgetController.deleteGadget);

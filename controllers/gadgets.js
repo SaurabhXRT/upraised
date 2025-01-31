@@ -107,6 +107,33 @@ class GadgetController {
             })
         }
     }
+
+    async getGadgetsByStatus(req, res) {
+        try {
+            const { status } = req.query;
+
+            const filter = {};
+            if (status) {
+                filter.status = status;
+            }
+            const gadgets = await Gadget.findAll({ where: filter });
+
+            const gadgetsWithProbability = gadgets.map(gadget => ({
+                ...gadget.toJSON(),
+                successProbability: `${generateSuccessProbability()}%`,
+            }));
+            res.status(200).json({
+                message: "gadget fetched succesfully",
+                data: gadgetsWithProbability
+            });
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                message: "internal server error"
+            })
+        }
+    }
 }
 
 module.exports = new GadgetController();
