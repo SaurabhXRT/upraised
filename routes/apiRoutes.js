@@ -8,10 +8,10 @@ router.post("/register", AuthController.requestOtp);
 router.post("/verify-email-otp", AuthController.verifyOtp);
 
 //gadget routes
-router.get('/gadgets', GadgetController.getAllGadgets);
-router.post('/gadgets', GadgetController.addGadget);
-router.patch('/gadgets/:id', GadgetController.updateGadget);
-router.delete('/gadgets/:id', GadgetController.deleteGadget);
-router.post('/gadgets/:id/self-destruct', GadgetController.selfDestruct);
+router.get('/gadgets', authmiddleware, GadgetController.getAllGadgets);
+router.post('/gadgets', authmiddleware, GadgetController.addGadget);
+router.patch('/gadgets/:id', authmiddleware, GadgetController.updateGadget);
+router.delete('/gadgets/:id', authmiddleware, GadgetController.deleteGadget);
+router.post('/gadgets/:id/self-destruct', authmiddleware, GadgetController.selfDestruct);
 
 module.exports = router;

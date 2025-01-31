@@ -3,6 +3,8 @@ const User = require("../models/User");
 const sendEmail = require("./email");
 const jsonwebtoken = require("jsonwebtoken");
 const secret = process.env.JWT_SECRET;
+
+//using email based otp verification we verify the user to provide token to secure api
 class AuthController {
     async requestOtp(req, res) {
         try {
