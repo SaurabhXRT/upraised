@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: "saurabhbabu147@gmail.com",
-    pass: "adtv mysk linc qkza",
+    user: process.env.GMAIL_EMAIL,
+    pass: process.env.GMAIL_PASSWORD,
   },
 });
 
@@ -67,7 +67,7 @@ const sendEmail = async (
   const htmlToSend = template({ name, otp });
 
   const mailOptions = {
-    from: "saurabhbabu147@gmail.com",
+    from: process.env.GMAIL_EMAIL,
     to: email,
     subject: "Your gadget api email OTP",
     html: htmlToSend,
